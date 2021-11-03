@@ -17,7 +17,7 @@ function IndividualCard({ items }) {
         <>
             {image && image !== undefined ?
                 
-                    <Box component="img" src={image} onError={errorImage} sx={{backgroundImage: `url(${image})`, backgroundSize: '100%', height: 'auto', width: '50%'}}>
+                    <Box component="img" src={image} onError={errorImage} sx={{backgroundImage: `url(${image})`, backgroundSize: '100%', height: 'auto', width: '100%'}}>
                         {/* <img onError={errorImage} src={image} alt='image' style={{ width: '100%'}}></img> */}
                     </Box>
                 

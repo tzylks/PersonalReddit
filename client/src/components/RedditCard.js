@@ -14,7 +14,7 @@ function RedditCard( { metaData, nextAfter } ){
         <Grid container spacing={1}>
             {metaData.map(items => {
                 return(
-                    <Grid item lg={6}>
+                    <Grid item lg={12}>
                     <IndividualCard items={items} />
                     </Grid>
                 )

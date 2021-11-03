@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import RedditCard from './components/RedditCard'
 
 function App() {
   const [count, setCount] = useState(0);
+  const [metaData, setMeta] = useState([])
 
   useEffect(() => {
     fetch("/hello")
@@ -10,19 +12,21 @@ function App() {
       .then((data) => setCount(data.count));
   }, []);
 
+  let after = ''
+
+  useEffect(() => {
+    fetch("https://www.reddit.com/r/prequelmemes.json")
+      .then(res => res.json())
+      .then(data => {
+        setMeta(data.data.children)
+      })
+  }, [])
+
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
-          </Route>
-          <Route path="/">
-            <h1>Page Count: {count}</h1>
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <>
+      <RedditCard metaData={metaData} />
+    </>
+
   );
 }
 

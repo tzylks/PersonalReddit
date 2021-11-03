@@ -5,6 +5,7 @@ import Loader from './components/Loader';
 import InfiniteScroll from 'react-infinite-scroller';
 import Dialog from '@mui/material/Dialog'
 
+
 function App() {
 
   const [count, setCount] = useState(0);
@@ -44,7 +45,7 @@ function App() {
           pageStart={0}
           loadMore={nextAfter}
           hasMore={true}
-          loader={<Dialog open={false} onClose={false} className="loader" key={0}>Loading ...</Dialog>}
+          loader={<div>Loading...</div>}
         >
           <RedditCard metaData={metaData} nextAfter={nextAfter} />
         </InfiniteScroll>
